@@ -5,7 +5,7 @@
 % Date: 02/04/2017
 % Version: 1.0
 
-% ATOMS
+% -------------------------ATOMS-------------------------
 
 student(adam).
 student(valentin).
@@ -54,4 +54,16 @@ capacity(2, threeEast).
 capacity(3, sixSouth).
 capacity(4, chancellorBuilding).
 
-% GENERATOR
+othercommitments(1, alanTurin).
+othercommitments(1, steveJobs).
+othercommitments(1, karlMarx).
+othercommitments(1, walterWhite).
+
+
+% -------------------------GENERATOR-------------------------
+
+%{teaches(U,L)} :- unit(U), lecturer(L).
+%1 { teaches(U,L) : unit(U) } 1 :- lecturer(L).
+
+
+% ------------------------- CONSTRAINTS -------------------------

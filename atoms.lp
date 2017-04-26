@@ -43,5 +43,5 @@ commitments(4,steveJobs).
 
 % ------ lecturers preferred teaching time at timestep T
 preferred(2, alanTurin).
-preferred(1, fabio).
+preferred(3, fabio).
 preferred(1, steveJobs).

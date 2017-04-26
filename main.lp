@@ -21,7 +21,7 @@ H { attendance(T,U,S,R) : roomBooked(T,U,_,R) } H :- hoursStudentUnit(H,U), take
 % ------------------------------------ RULES -----------------------------------
 
 % launchbreak at specified timestep.
-launchbreak :- roomBooked(3,_,_,_).
+%launchbreak :- roomBooked(3,_,_,_).
 
 
 % --------------------------------- CONSTRAINTS --------------------------------
@@ -47,6 +47,9 @@ launchbreak :- roomBooked(3,_,_,_).
 % => remove answers where the units are different (cannot be same unit)
 :- roomBooked(T,U1,_,R), roomBooked(T,U2,_,R), U1 != U2.
 
+:- roomBooked(T,_,L,R1), roomBooked(T,_,L,R2), R1 != R2.
+
+
 % lecturer should have all his lectures scheduled.
 % insert weak constraints here
 
@@ -60,7 +63,12 @@ launchbreak :- roomBooked(3,_,_,_).
 % ------- extension 1
 
 % at timestep 3, all rooms cannot be booked for lunchbreak.
-:- launchbreak.
+%:- launchbreak.
+
+% preferred time
+:~ roomBooked(T,_,L,_), preferred(T1,L), T!=T1.[10,T,L,T1]
+
+
 
 
 % ----------------------------------- DISPLAY ----------------------------------

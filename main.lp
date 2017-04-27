@@ -2,7 +2,7 @@
 % ASP AnsProlog Timetable
 % Author: Adam Jaamour
 % Email: aj645@bath.ac.uk
-% Date: 25/04/2017
+% Date: 27/04/2017
 % See: atoms.lp
 % Version: 1.0
 
@@ -18,15 +18,10 @@ H { roomBooked(T,U,L,R) : timesteps(T) , teaches(U,L) , room(R) } H :- hoursUnit
 H { attendance(T,U,S,R) : roomBooked(T,U,_,R) } H :- hoursStudentUnit(H,U), takes(U,S).
 
 
-% ------------------------------------ RULES -----------------------------------
-
-% launchbreak at specified timestep.
-%launchbreak :- roomBooked(3,_,_,_).
-
-
 % --------------------------------- CONSTRAINTS --------------------------------
 
-% ------ roomBooked (lecturers)
+% ------- basic system
+
 % if same unit and room / different lecturers / any timestep
 % => remove answers where the lecturer is different
 :- roomBooked(_,U,L1,R), roomBooked(_,U,L2,R), L1 != L2.
@@ -50,25 +45,17 @@ H { attendance(T,U,S,R) : roomBooked(T,U,_,R) } H :- hoursStudentUnit(H,U), take
 :- roomBooked(T,_,L,R1), roomBooked(T,_,L,R2), R1 != R2.
 
 
-% lecturer should have all his lectures scheduled.
-% insert weak constraints here
-
-
-% ------ student attendance
-
-% students should have attend all his scheduled lectures
-% insert weak constraints here
-
-
 % ------- extension 1
 
+% launchbreak at specified timestep.
 % at timestep 3, all rooms cannot be booked for lunchbreak.
+%launchbreak :- roomBooked(3,_,_,_).
 %:- launchbreak.
 
-% preferred time
-:~ roomBooked(T,_,L,_), preferred(T1,L), T!=T1.[10,T,L,T1]
-
-
+% Preferred teaching time
+% if time different / same lecturer / any unit and room
+% => add 10 penalty
+:~ roomBooked(T1,_,L,_), preferred(T2,L), T1!=T2.[10,T1,L,T2]
 
 
 % ----------------------------------- DISPLAY ----------------------------------

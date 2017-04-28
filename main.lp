@@ -9,7 +9,7 @@
 % ---------------------------------- GENERATOR ---------------------------------
 
 % schedules H timeslots for unit U at timestep T
-timesteps(1..4). % 4 hours in a day
+timesteps(1..10). % 4 hours in a day
 
 % schedule for lecturers
 H { roomBooked(T,U,L,R) : timesteps(T) , teaches(U,L) , room(R) } H :- hoursUnit(H,U).
@@ -51,6 +51,7 @@ H { attendance(T,U,S,R) : roomBooked(T,U,_,R) } H :- hoursStudentUnit(H,U), take
 % at timestep 3, all rooms cannot be booked for lunchbreak.
 %launchbreak :- roomBooked(3,_,_,_).
 %:- launchbreak.
+:~ roomBooked(T,_,_,_), T == 5.[10,T]
 
 % Preferred teaching time
 % if time different / same lecturer / any unit and room

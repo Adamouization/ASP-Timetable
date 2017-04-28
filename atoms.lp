@@ -24,6 +24,12 @@ hoursStudentUnit(2, economics).
 hoursStudentUnit(1, maths).
 hoursStudentUnit(1, chemistry).
 
+% ------ rooms
+room(oneWest).
+room(eightWest).
+room(threeEast).
+%room(sixSouth).
+
 % ------ rooms and their capacity
 room(oneWest).
 room(eightWest).
@@ -45,13 +51,14 @@ teaches(chemistry, walterWhite).
 
 % ------ other lecturer commitments at timestep T
 commitments(1, alanTurin).
+commitments(10, alanTurin).
 commitments(2, fabio).
 commitments(1, karlMarx).
 commitments(3, walterWhite).
 commitments(4, walterWhite).
 
 % ------ lecturers preferred teaching time at timestep T
-preferred(2, alanTurin).
-preferred(1, fabio).
-preferred(3, karlMarx).
-preferred(1, walterWhite).
+preferred(4, alanTurin).
+preferred(3, fabio).
+preferred(7, karlMarx).
+preferred(8, walterWhite).

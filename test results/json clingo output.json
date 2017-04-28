@@ -1,0 +1,71 @@
+
+{
+  "Solver": "clingo version 4.2.1",
+  "Input": [
+    "main.lp","atoms.lp"
+  ],
+  "Call": [
+    {
+      "Witnesses": [
+        {
+          "Value": [
+            "roomBooked(10,computerScience,fabio,oneWest)", "roomBooked(1,computerScience,fabio,eightWest)", "roomBooked(6,economics,karlMarx,oneWest)", "roomBooked(7,economics,karlMarx,eightWest)", "roomBooked(8,economics,karlMarx,threeEast)", "roomBooked(2,maths,alanTurin,oneWest)", "roomBooked(5,maths,alanTurin,eightWest)", "roomBooked(9,chemistry,walterWhite,oneWest)", "attendance(10,computerScience,adam,oneWest)", "attendance(1,computerScience,adam,eightWest)", "attendance(10,computerScience,andrea,oneWest)", "attendance(1,computerScience,andrea,eightWest)", "attendance(7,economics,rodolph,eightWest)", "attendance(8,economics,rodolph,threeEast)", "attendance(7,economics,valentin,eightWest)", "attendance(8,economics,valentin,threeEast)", "attendance(5,maths,adam,eightWest)", "attendance(5,maths,alice,eightWest)", "attendance(5,maths,chris,eightWest)", "attendance(9,chemistry,chris,oneWest)"
+          ],
+          "Opt": [
+            80
+          ]
+        },
+        {
+          "Value": [
+            "roomBooked(10,computerScience,fabio,oneWest)", "roomBooked(1,computerScience,fabio,eightWest)", "roomBooked(6,economics,karlMarx,oneWest)", "roomBooked(7,economics,karlMarx,eightWest)", "roomBooked(8,economics,karlMarx,threeEast)", "roomBooked(2,maths,alanTurin,oneWest)", "roomBooked(5,maths,alanTurin,eightWest)", "roomBooked(8,chemistry,walterWhite,oneWest)", "attendance(10,computerScience,adam,oneWest)", "attendance(1,computerScience,adam,eightWest)", "attendance(10,computerScience,andrea,oneWest)", "attendance(1,computerScience,andrea,eightWest)", "attendance(7,economics,rodolph,eightWest)", "attendance(8,economics,rodolph,threeEast)", "attendance(7,economics,valentin,eightWest)", "attendance(8,economics,valentin,threeEast)", "attendance(5,maths,adam,eightWest)", "attendance(5,maths,alice,eightWest)", "attendance(5,maths,chris,eightWest)", "attendance(8,chemistry,chris,oneWest)"
+          ],
+          "Opt": [
+            70
+          ]
+        },
+        {
+          "Value": [
+            "roomBooked(4,computerScience,alanTurin,eightWest)", "roomBooked(10,computerScience,fabio,oneWest)", "roomBooked(6,economics,karlMarx,oneWest)", "roomBooked(7,economics,karlMarx,eightWest)", "roomBooked(8,economics,karlMarx,threeEast)", "roomBooked(2,maths,alanTurin,oneWest)", "roomBooked(5,maths,alanTurin,eightWest)", "roomBooked(8,chemistry,walterWhite,oneWest)", "attendance(10,computerScience,adam,oneWest)", "attendance(4,computerScience,adam,eightWest)", "attendance(10,computerScience,andrea,oneWest)", "attendance(4,computerScience,andrea,eightWest)", "attendance(7,economics,rodolph,eightWest)", "attendance(8,economics,rodolph,threeEast)", "attendance(7,economics,valentin,eightWest)", "attendance(8,economics,valentin,threeEast)", "attendance(5,maths,adam,eightWest)", "attendance(5,maths,alice,eightWest)", "attendance(5,maths,chris,eightWest)", "attendance(8,chemistry,chris,oneWest)"
+          ],
+          "Opt": [
+            60
+          ]
+        },
+        {
+          "Value": [
+            "roomBooked(4,computerScience,alanTurin,oneWest)", "roomBooked(3,computerScience,fabio,eightWest)", "roomBooked(8,economics,karlMarx,oneWest)", "roomBooked(10,economics,karlMarx,oneWest)", "roomBooked(7,economics,karlMarx,eightWest)", "roomBooked(2,maths,alanTurin,oneWest)", "roomBooked(5,maths,alanTurin,eightWest)", "roomBooked(8,chemistry,walterWhite,eightWest)", "attendance(4,computerScience,adam,oneWest)", "attendance(3,computerScience,adam,eightWest)", "attendance(4,computerScience,andrea,oneWest)", "attendance(3,computerScience,andrea,eightWest)", "attendance(10,economics,rodolph,oneWest)", "attendance(7,economics,rodolph,eightWest)", "attendance(10,economics,valentin,oneWest)", "attendance(7,economics,valentin,eightWest)", "attendance(5,maths,adam,eightWest)", "attendance(5,maths,alice,eightWest)", "attendance(5,maths,chris,eightWest)", "attendance(8,chemistry,chris,eightWest)"
+          ],
+          "Opt": [
+            50
+          ]
+        },
+        {
+          "Value": [
+            "roomBooked(4,computerScience,alanTurin,threeEast)", "roomBooked(3,computerScience,fabio,oneWest)", "roomBooked(7,economics,karlMarx,eightWest)", "roomBooked(2,economics,karlMarx,threeEast)", "roomBooked(3,economics,karlMarx,threeEast)", "roomBooked(2,maths,alanTurin,oneWest)", "roomBooked(7,maths,alanTurin,threeEast)", "roomBooked(8,chemistry,walterWhite,oneWest)", "attendance(3,computerScience,adam,oneWest)", "attendance(4,computerScience,adam,threeEast)", "attendance(3,computerScience,andrea,oneWest)", "attendance(4,computerScience,andrea,threeEast)", "attendance(2,economics,rodolph,threeEast)", "attendance(3,economics,rodolph,threeEast)", "attendance(2,economics,valentin,threeEast)", "attendance(3,economics,valentin,threeEast)", "attendance(7,maths,adam,threeEast)", "attendance(7,maths,alice,threeEast)", "attendance(7,maths,chris,threeEast)", "attendance(8,chemistry,chris,oneWest)"
+          ],
+          "Opt": [
+            40
+          ]
+        }
+      ]
+    }
+  ],
+  "Result": "OPTIMUM FOUND",
+  "Models": {
+    "Number": 1,
+    "More": "no",
+    "Enumerated": 5,
+    "Optimum": "yes",
+    "Opt": [
+      40
+    ]
+  },
+  "Calls": 1,
+  "Time": {
+    "Total": 0.106,
+    "Solve": 0.091,
+    "Model": 0.000,
+    "Unsat": 0.087,
+    "CPU": 0.100
+  }
+}

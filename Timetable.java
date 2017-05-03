@@ -35,8 +35,6 @@ public class Timetable {
 				//Long telephone = (Long) jsonObjectRow.get("Phone_Number");
 				System.out.println(jsonObjectRow.get(1));
 			}
-			
-			
 		}
 		catch(ParseException pe){
 			//System.err.println("error position: " + pe.getPosition());

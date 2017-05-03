@@ -24,17 +24,11 @@ hoursStudentUnit(2, economics).
 hoursStudentUnit(1, maths).
 hoursStudentUnit(1, chemistry).
 
-% ------ rooms
-room(oneWest).
-room(eightWest).
-room(threeEast).
-%room(sixSouth).
 
 % ------ rooms and their capacity
-room(oneWest).
-room(eightWest).
-room(threeEast).
-%room(sixSouth).
+room(oneWest,2).
+room(eightWest,2).
+room(threeEast,2).
 
 % ------ units and hours taught per week
 hoursUnit(2, computerScience).
@@ -62,3 +56,5 @@ preferred(4, alanTurin).
 preferred(3, fabio).
 preferred(7, karlMarx).
 preferred(8, walterWhite).
+
+% edge cases = put two for each test, one satisfiable one not, change only info between each

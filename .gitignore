@@ -23,6 +23,5 @@ hs_err_pid*
 
 # Local files
 specs
-result parsed.txt
 command.txt
 lib

@@ -57,7 +57,12 @@ capacity(T,R,Total) :- Total = #count {S: attendance(T,_,S,R,_)}, room(R,_), tim
 
 % launchbreak at specified timestep.
 % at timestep 3,8,13,18,23: all rooms cannot be booked for lunchbreak, unless necessary (adding 10 points penalty).
-:~ roomBooked(T,_,_,_,_), T == 3, T==8, T==13, T=18, T=23.[10,T]
+%:~ roomBooked(T,_,_,_,_), T==3, T==8, T==13, T==18, T==23.[10,T]
+:~ roomBooked(T,_,_,_,_), T==3.[10,T]
+:~ roomBooked(T,_,_,_,_), T==8.[10,T]
+:~ roomBooked(T,_,_,_,_), T==13.[10,T]
+:~ roomBooked(T,_,_,_,_), T==18.[10,T]
+:~ roomBooked(T,_,_,_,_), T==23.[10,T]
 
 % take into account preferred lecturer's teaching time
 % if same lecturer / different time / any unit, room and room capacity:
@@ -68,7 +73,9 @@ capacity(T,R,Total) :- Total = #count {S: attendance(T,_,S,R,_)}, room(R,_), tim
 % ------- extra features
 
 % nothing can be booked on wednesday afternoons.
-wednesdayOff :- roomBooked(14,_,_,_,_), roomBooked(15,_,_,_,_).
+wednesdayOff :- roomBooked(13,_,_,_,_).
+wednesdayOff :- roomBooked(14,_,_,_,_).
+wednesdayOff :- roomBooked(15,_,_,_,_).
 :- wednesdayOff.
 
 

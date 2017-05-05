@@ -1,0 +1,28 @@
+.cond .asp a:link {text-decoration: none; color:black;}
+.cond .asp a:visited {text-decoration: none; color:black;}
+.cond .asp a:hover {font-weight:bold; color: salmon;}
+.cond .asp a:active {text-decoration: none}
+
+.asp{
+	color: black;
+}
+.cond{
+	color: #003399;
+}
+.cond a:link {text-decoration: none; color:#003399;}
+.cond a:visited {text-decoration: none; color:#003399;}
+.cond a:hover {font-weight:bold; color: red;}
+.cond a:active {text-decoration: none}
+
+.nolink{
+	color: #505050 ;
+}
+	
+pre {
+ white-space: pre-wrap;       /* css-3 */
+ white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+ white-space: -pre-wrap;      /* Opera 4-6 */
+ white-space: -o-pre-wrap;    /* Opera 7 */
+ word-wrap: break-word;       /* Internet Explorer 5.5+ */
+ width: 99%;
+}

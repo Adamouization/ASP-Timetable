@@ -1,0 +1,327 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta name="block" content="ASPdoc"/><title>ASPDOC</title><link rel="stylesheet" href="style_code.css" type="text/css" charset="utf-8"/></head><body><div class="doc"><div class="block"><pre>
+</pre><div class="block"><pre>%**
+<a name="Timetable_Data"><!-- --></a><code>@block <a href="index.html#Timetable_Data">Timetable_Data</a></code>{
+ &nbsp;Encoding of the predicates used to generate the timetable.
+ &nbsp;These include:
+ &nbsp;_timesteps which represent a full week (1 timestep = 2 hours, 5 timesteps per day)
+ &nbsp;_units, how many hours they should be taught per week and how many hours each student enrolled should attend,
+ &nbsp;_students, who take units and attend lectures,
+ &nbsp;_lecturers, who teach units (at preferred teaching times and not when they have other commitments),
+ &nbsp;_rooms and their student capacity.
+ &nbsp;
+ &nbsp;@term T 
+ &nbsp; &nbsp;T is a timestep ranging from 1 to 25 during which a lecture can be scheduled if possible
+ &nbsp; &nbsp;
+ &nbsp;@term U 
+ &nbsp; &nbsp;U is a unit taught by a single lecturer and taken by multiple students S
+ &nbsp; &nbsp;
+ &nbsp;@term S 
+ &nbsp; &nbsp;S is a student who takes units and attends lectures
+ &nbsp; &nbsp;
+ &nbsp;@term H 
+ &nbsp; &nbsp;H is the number of lectures scheduled for a unit AND the number of scheduled lectures a student must take for a single unit
+ &nbsp; &nbsp;
+ &nbsp;@term R 
+ &nbsp; &nbsp;R is a room where a lecture takes place
+ &nbsp; &nbsp;
+ &nbsp;@term C 
+ &nbsp; &nbsp;C is a room capacity to limit the number of students attending a lecture at the same time
+ &nbsp; &nbsp;
+ &nbsp;@term L 
+ &nbsp; &nbsp;L is a lecturer who teaches a unit
+ &nbsp; &nbsp;
+ &nbsp;@term O 
+ &nbsp; &nbsp;O is a timestep at which a lecturer has other commitments and therefore cannot teach
+ &nbsp; &nbsp;
+ &nbsp;@term P 
+ &nbsp; &nbsp;P is a timestep at which a lecturer would like to teach if it is possible
+ &nbsp; &nbsp;
+ &nbsp;@atom timesteps(T)
+ &nbsp; &nbsp;the amount of slots in which lectures can be scheduled
+ &nbsp; &nbsp;
+ &nbsp;@atom takes(U, S)
+ &nbsp; &nbsp;a student name's S and a unit U he is enrolled in
+ &nbsp; &nbsp;
+ &nbsp;@atom hoursStudentUnit(H, U)
+ &nbsp; &nbsp;the number of hours a student should attend for each unit
+ &nbsp; &nbsp;
+ &nbsp;@atom room(R, C)
+ &nbsp; &nbsp;a room name's R and its student capacity
+ &nbsp; &nbsp;
+ &nbsp;@atom hoursUnit(H, U)
+ &nbsp; &nbsp;how many hours a unit is taught by a lecturer
+ &nbsp; &nbsp;
+ &nbsp;@atom teaches(U, L)
+ &nbsp; &nbsp;the lecturer's name L and a unit U he teaches
+ &nbsp; &nbsp;
+ &nbsp;@atom commitments(O, L)
+ &nbsp; &nbsp;the lecturer L has another commitment at timestep O and cannot teach
+ &nbsp; &nbsp;
+ &nbsp;@atom preferred(P, L)
+ &nbsp; &nbsp;the lecturer L would like to teach at timestep P if possible
+ &nbsp; &nbsp;
+ &nbsp;</pre><pre>*%</pre><div class="asp"><pre>
+<a href="index.html#Timetable_Data_hiddens_timesteps1">timesteps(1..25)</a>.
+<a href="index.html#Timetable_Data_hiddens_takes2">takes(computerScience, adam)</a>.
+<a href="index.html#Timetable_Data_hiddens_takes2">takes(computerScience, andrea)</a>.
+<a href="index.html#Timetable_Data_hiddens_takes2">takes(economics, rodolph)</a>.
+<a href="index.html#Timetable_Data_hiddens_takes2">takes(economics, valentin)</a>.
+<a href="index.html#Timetable_Data_hiddens_takes2">takes(maths, adam)</a>.
+<a href="index.html#Timetable_Data_hiddens_takes2">takes(maths, alice)</a>.
+<a href="index.html#Timetable_Data_hiddens_takes2">takes(maths, chris)</a>.
+<a href="index.html#Timetable_Data_hiddens_takes2">takes(chemistry, chris)</a>.
+<a href="index.html#Timetable_Data_hiddens_hoursStudentUnit2">hoursStudentUnit(2, computerScience)</a>.
+<a href="index.html#Timetable_Data_hiddens_hoursStudentUnit2">hoursStudentUnit(2, economics)</a>.
+<a href="index.html#Timetable_Data_hiddens_hoursStudentUnit2">hoursStudentUnit(1, maths)</a>.
+<a href="index.html#Timetable_Data_hiddens_hoursStudentUnit2">hoursStudentUnit(1, chemistry)</a>.
+<a href="index.html#Timetable_Data_hiddens_room2">room(oneWest, 2)</a>.
+<a href="index.html#Timetable_Data_hiddens_room2">room(eightWest, 2)</a>.
+<a href="index.html#Timetable_Data_hiddens_hoursUnit2">hoursUnit(2, computerScience)</a>.
+<a href="index.html#Timetable_Data_hiddens_hoursUnit2">hoursUnit(3, economics)</a>.
+<a href="index.html#Timetable_Data_hiddens_hoursUnit2">hoursUnit(2, maths)</a>.
+<a href="index.html#Timetable_Data_hiddens_hoursUnit2">hoursUnit(1, chemistry)</a>.
+<a href="index.html#Timetable_Data_hiddens_teaches2">teaches(computerScience, alanTurin)</a>.
+<a href="index.html#Timetable_Data_hiddens_teaches2">teaches(computerScience, fabio)</a>.
+<a href="index.html#Timetable_Data_hiddens_teaches2">teaches(economics, karlMarx)</a>.
+<a href="index.html#Timetable_Data_hiddens_teaches2">teaches(economics, jordanBelfort)</a>.
+<a href="index.html#Timetable_Data_hiddens_teaches2">teaches(maths, alanTurin)</a>.
+<a href="index.html#Timetable_Data_hiddens_teaches2">teaches(chemistry, walterWhite)</a>.
+<a href="index.html#Timetable_Data_hiddens_commitments2">commitments(1, alanTurin)</a>.
+<a href="index.html#Timetable_Data_hiddens_commitments2">commitments(3, alanTurin)</a>.
+<a href="index.html#Timetable_Data_hiddens_commitments2">commitments(9, alanTurin)</a>.
+<a href="index.html#Timetable_Data_hiddens_commitments2">commitments(11, alanTurin)</a>.
+<a href="index.html#Timetable_Data_hiddens_commitments2">commitments(11, fabio)</a>.
+<a href="index.html#Timetable_Data_hiddens_commitments2">commitments(13, fabio)</a>.
+<a href="index.html#Timetable_Data_hiddens_commitments2">commitments(10, karlMarx)</a>.
+<a href="index.html#Timetable_Data_hiddens_commitments2">commitments(11, jordanBelfort)</a>.
+<a href="index.html#Timetable_Data_hiddens_commitments2">commitments(25, jordanBelfort)</a>.
+<a href="index.html#Timetable_Data_hiddens_commitments2">commitments(17, walterWhite)</a>.
+<a href="index.html#Timetable_Data_hiddens_preferred2">preferred(2, alanTurin)</a>.
+<a href="index.html#Timetable_Data_hiddens_preferred2">preferred(12, fabio)</a>.
+<a href="index.html#Timetable_Data_hiddens_preferred2">preferred(9, karlMarx)</a>.
+<a href="index.html#Timetable_Data_hiddens_preferred2">preferred(24, jordanBelfort)</a>.
+<a href="index.html#Timetable_Data_hiddens_preferred2">preferred(16, walterWhite)</a>.
+
+</pre></div><pre>%**
+}
+*%
+</pre></div>
+<div class="block"><pre>%**
+<a name="Timetable"><!-- --></a><code>@block <a href="index.html#Timetable">Timetable</a></code>{
+ &nbsp;Encoding of Timetabling logic.
+ &nbsp;
+ &nbsp;@atom roomBooked(T, U, L, R, C)
+ &nbsp; &nbsp;represents a scheduled lecture at a timestep T, for a unit U, taught by a lecturer L, in a room R with a student capacity C.
+ &nbsp; &nbsp;
+ &nbsp;@atom attendance(T, U, S, R, C)
+ &nbsp; &nbsp;represents a student attending a scheduled lecture at a timestep T, for a unit U, in a room R with a student capacity C.
+ &nbsp; &nbsp;
+ &nbsp;@atom capacity(T, R, Total)
+ &nbsp; &nbsp;represents the number of students Total attending a scheduled lecture at timestep T in a room R.
+ &nbsp; &nbsp;
+ &nbsp;@output <a href="index.html#Timetable_outputs_roomBooked5">roomBooked/5</a>, &nbsp;<a href="index.html#Timetable_outputs_attendance5">attendance/5</a></pre><pre>*%</pre><div class="block"><pre>%**
+<a name="Generators"><!-- --></a><code>@block <a href="index.html#Generators">Generators</a></code>{
+ &nbsp;Schedules H lectures in a room at a specified timestep, where lecturers teach their unit and students attend it H times.
+ &nbsp;Also satisfies some requirements for the basic functional system stated in the coursework specification, including:
+ &nbsp;_ students should have all their units scheduled,
+ &nbsp;_ lecturers should have all their units scheduled.
+ &nbsp;Note: 	by including the atoms generated in the first generator into the second one, the rules/constraints applied to schedule lectures for lectures
+ &nbsp;are inherited by students since they can only attend lectures which are correctly scheduled (fit all the requirements specified).
+ &nbsp;
+ &nbsp;</pre><pre>*%</pre><div class="block"><pre>%**
+<a name="Room_Booking"><!-- --></a><code>@block <a href="index.html#Room_Booking">Room_Booking</a></code>{
+ &nbsp;Schedules H lectures to be taught by a lecturer L, in a room R (with student capacity C), for a unit U, at timestep T.
+ &nbsp;H corresponds to the H of the 'hoursUnit(H,U)' predicate found in 'atoms.lp', which corresponds to the number of lectures that should be scheduled for each unit.
+ &nbsp;
+ &nbsp;</pre><pre>*%</pre><div class="asp"><pre>
+% schedule for lecturers
+H {<span class="nolink">roomBooked(T, U, L, R, C): <span class="nolink">timesteps(T)</span>, <span class="nolink">teaches(U, L)</span>, <span class="nolink">room(R, C)</span></span>} H :- <span class="nolink">hoursUnit(H, U)</span>.
+
+</pre></div><pre>%**
+}
+*%
+</pre></div>
+<div class="block"><pre>%**
+<a name="Student_Attendance"><!-- --></a><code>@block <a href="index.html#Student_Attendance">Student_Attendance</a></code>{
+ &nbsp;Schedules which lectures a student S should attend for units U he is enrolled in, in a room R (with student capacity C), at timestep T.
+ &nbsp;Each student must attend H lectures for a unit he takees, where H corresponds to the H of the 'hoursStudentUnit(H,U)' predicate found in 'atoms.lp',
+ &nbsp;which corresponds to the number of lectures that a student should attend for each unit he is enrolled in.
+ &nbsp;
+ &nbsp;</pre><pre>*%</pre><div class="asp"><pre>
+% schedule for students
+H {<span class="nolink">attendance(T, U, S, R, C): <span class="nolink">roomBooked(T, U, _, R, C)</span></span>} H :- <span class="nolink">hoursStudentUnit(H, U)</span>, <span class="nolink">takes(U, S)</span>.
+
+</pre></div><pre>%**
+}
+*%
+</pre></div>
+<pre>%**
+}
+*%
+</pre></div>
+<div class="block"><pre>%**
+<a name="Basic_Functional_System"><!-- --></a><code>@block <a href="index.html#Basic_Functional_System">Basic_Functional_System</a></code>{
+ &nbsp;Constraints &amp; rules are used to satisfy the requirements for the basic functional system stated in the coursework specification, including:
+ &nbsp;_ students should not be forced to attend two lectures at the same time,
+ &nbsp;_ lecturers cannot teach two units at the same time,
+ &nbsp;_ rooms can only be used for one lecture at the time,
+ &nbsp;_ lecturers cannot teach when they have other commitments.
+ &nbsp;
+ &nbsp;</pre><pre>*%</pre><div class="block"><pre>%**
+<a name="Different_Lecturer"><!-- --></a><code>@block <a href="index.html#Different_Lecturer">Different_Lecturer</a></code>{
+ &nbsp;Removes answers where the lecturer is different for a lecture scheduled in the same room for the same unit.
+ &nbsp;
+ &nbsp;</pre><pre>*%</pre><div class="asp"><pre>
+:- <span class="nolink">roomBooked(_, U, L1, R, _)</span>, <span class="nolink">roomBooked(_, U, L2, R, _)</span>, L1 != L2.
+
+</pre></div><pre>%**
+}
+*%
+</pre></div>
+<div class="block"><pre>%**
+<a name="Different_Room"><!-- --></a><code>@block <a href="index.html#Different_Room">Different_Room</a></code>{
+ &nbsp;Removes answers where the room is different for a same lecture scheduled in at same timestep for the same unit.
+ &nbsp;
+ &nbsp;</pre><pre>*%</pre><div class="asp"><pre>
+:- <span class="nolink">roomBooked(T, U, _, R1, _)</span>, <span class="nolink">roomBooked(T, U, _, R2, _)</span>, R1 != R2.
+
+</pre></div><pre>%**
+}
+*%
+</pre></div>
+<div class="block"><pre>%**
+<a name="Different_Room_Bis"><!-- --></a><code>@block <a href="index.html#Different_Room_Bis">Different_Room_Bis</a></code>{
+ &nbsp;Removes answers where the room is different for a same lecture scheduled in at same timestep with the same lecturer.
+ &nbsp;
+ &nbsp;</pre><pre>*%</pre><div class="asp"><pre>
+% if same time and lecturer / different rooms / any unit and room capacity:
+% =&gt; rempove answers where the rooms are different.
+:- <span class="nolink">roomBooked(T, _, L, R1, _)</span>, <span class="nolink">roomBooked(T, _, L, R2, _)</span>, R1 != R2.
+
+</pre></div><pre>%**
+}
+*%
+</pre></div>
+<div class="block"><pre>%**
+<a name="Different_Unit"><!-- --></a><code>@block <a href="index.html#Different_Unit">Different_Unit</a></code>{
+ &nbsp;Removes answers where the unit is different for a same lecture scheduled in at same timestep in the same room.
+ &nbsp;
+ &nbsp;</pre><pre>*%</pre><div class="asp"><pre>
+:- <span class="nolink">roomBooked(T, U1, _, R, _)</span>, <span class="nolink">roomBooked(T, U2, _, R, _)</span>, U1 != U2.
+
+</pre></div><pre>%**
+}
+*%
+</pre></div>
+<div class="block"><pre>%**
+<a name="Lecturer_not_Teach_Unit"><!-- --></a><code>@block <a href="index.html#Lecturer_not_Teach_Unit">Lecturer_not_Teach_Unit</a></code>{
+ &nbsp;Removes answers where a lecturer teaches a unit that is not his.
+ &nbsp;
+ &nbsp;</pre><pre>*%</pre><div class="asp"><pre>
+:- <span class="nolink">roomBooked(T, U, L, R, _)</span>, <span class="nolink">not teaches(U, L)</span>.
+
+</pre></div><pre>%**
+}
+*%
+</pre></div>
+<div class="block"><pre>%**
+<a name="Other_Commitments"><!-- --></a><code>@block <a href="index.html#Other_Commitments">Other_Commitments</a></code>{
+ &nbsp;Removes answers where a lecturer teaches at a timestep identical to the timesteps when he has other commitments.
+ &nbsp;
+ &nbsp;</pre><pre>*%</pre><div class="asp"><pre>
+:- <span class="nolink">roomBooked(T, U, L, R, _)</span>, <span class="nolink">commitments(T, L)</span>.
+
+</pre></div><pre>%**
+}
+*%
+</pre></div>
+<div class="block"><pre>%**
+<a name="Room_Capacity"><!-- --></a><code>@block <a href="index.html#Room_Capacity">Room_Capacity</a></code>{
+ &nbsp;First counts number of students in a specific room R at a timestep T,
+ &nbsp;Then removes answer where the number of students in a room exceeds the room's student capacity.
+ &nbsp;
+ &nbsp;</pre><pre>*%</pre><div class="asp"><pre>
+<span class="nolink">capacity(T, R, Total)</span> :- Total = #count{S:<span class="nolink">attendance(T, _, S, R, _)</span>}, <span class="nolink">room(R, _)</span>, <span class="nolink">timesteps(T)</span>.
+:- <span class="nolink">roomBooked(T, _, _, R, C)</span>, <span class="nolink">capacity(T, R, Total)</span>, Total &gt; C.
+
+</pre></div><pre>%**
+}
+*%
+</pre></div>
+<pre>%**
+}
+*%
+</pre></div>
+<div class="block"><pre>%**
+<a name="Extension_1"><!-- --></a><code>@block <a href="index.html#Extension_1">Extension_1</a></code>{
+ &nbsp;Weak constraints are used to satisfy the requirements for extension 1 stated in the coursework specification, including:
+ &nbsp;_ lecturers can have preferred teaching times and the timetables take this into account as much as possible.
+ &nbsp;_ timetables offer a lunch break where possible.
+ &nbsp;
+ &nbsp;</pre><pre>*%</pre><div class="block"><pre>%**
+<a name="LunchBreak"><!-- --></a><code>@block <a href="index.html#LunchBreak">LunchBreak</a></code>{
+ &nbsp;Adds 10 penalty points for each lecture that is scheduled during the lunchbreak timesteps.
+ &nbsp;Lunch breaks are at timesteps 3, 8, 13, 18 and 23
+ &nbsp;Weak constraints are used to schedule a lecture during the lunch break if needed, otherwise lectures are scheduled outside lunchbreaks.
+ &nbsp;For each lecture scheduled during a lunch break period, 10 penalty points are added to the current model.
+ &nbsp;
+ &nbsp;</pre><pre>*%</pre><div class="asp"><pre>
+:~ <span class="nolink">roomBooked(T, _, _, _, _)</span>, T = 3. [10, T]
+:~ <span class="nolink">roomBooked(T, _, _, _, _)</span>, T = 8. [10, T]
+:~ <span class="nolink">roomBooked(T, _, _, _, _)</span>, T = 13. [10, T]
+:~ <span class="nolink">roomBooked(T, _, _, _, _)</span>, T = 18. [10, T]
+:~ <span class="nolink">roomBooked(T, _, _, _, _)</span>, T = 23. [10, T]
+
+</pre></div><pre>%**
+}
+*%
+</pre></div>
+<div class="block"><pre>%**
+<a name="PreferredTeachingTime"><!-- --></a><code>@block <a href="index.html#PreferredTeachingTime">PreferredTeachingTime</a></code>{
+ &nbsp;Adds 10 penalty points for each lecturer who doesn't teach at his preferred timestep.
+ &nbsp;Preferred teaching times are specified in the 'atoms.lp' file under the 'preferred(P,L)' atoms.
+ &nbsp;
+ &nbsp;</pre><pre>*%</pre><div class="asp"><pre>
+:~ <span class="nolink">roomBooked(T1, _, L, _, _)</span>, <span class="nolink">preferred(T2, L)</span>, T1 != T2. [10, T1, L, T2]
+
+</pre></div><pre>%**
+}
+*%
+</pre></div>
+<pre>%**
+}
+*%
+</pre></div>
+<div class="block"><pre>%**
+<a name="ExtraFeature"><!-- --></a><code>@block <a href="index.html#ExtraFeature">ExtraFeature</a></code>{
+ &nbsp;Extra feature taking into account breaks on Wednesday afternoons for extra activities.
+ &nbsp;The rule wednesdayOff books a room at the timesteps corresponding to a wednesday afternoon, thus making sure no lectures can be scheduled during that time.
+ &nbsp;
+ &nbsp;</pre><pre>*%</pre><div class="asp"><pre>
+<span class="nolink">wednesdayOff</span> :- <span class="nolink">roomBooked(13, _, _, _, _)</span>.
+<span class="nolink">wednesdayOff</span> :- <span class="nolink">roomBooked(14, _, _, _, _)</span>.
+<span class="nolink">wednesdayOff</span> :- <span class="nolink">roomBooked(15, _, _, _, _)</span>.
+:- <span class="nolink">wednesdayOff</span>.
+
+</pre></div><pre>%**
+}
+*%
+</pre></div>
+<div class="block"><pre>%**
+<a name="Display"><!-- --></a><code>@block <a href="index.html#Display">Display</a></code>{
+ &nbsp;Outputs only the roomBooked and attendance atoms to the terminal.
+ &nbsp;
+ &nbsp;</pre><pre>*%</pre><div class="asp"><pre>
+#show <span class="nolink">roomBooked(_, _, _, _, _)</span>.
+#show <span class="nolink">attendance(_, _, _, _, _)</span>.
+
+</pre></div><pre>%**
+}
+*%
+</pre></div>
+<pre>%**
+}
+*%
+</pre></div>
+</div>
+</div></body></html>

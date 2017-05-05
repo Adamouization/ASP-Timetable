@@ -1,0 +1,152 @@
+.block h2 {
+ background-color:#003366;
+ color:white;
+}
+.block .blockheader{
+ background-color:#003366;
+ color:white;
+}
+.block .blockpart{
+}
+
+.block  .block{
+	background: #003366;
+	padding: 2px;
+	position: relative;
+}
+.block  .block h2{
+	background-color: #ECECF3;
+	color:black;
+}	
+.block .block .blockheader h2{
+    background-color:#003366;
+	color:white;
+}
+
+.block .block .blockpart {
+	border: 5px solid #003366;
+	background-color: #ECECF3;
+	padding: 1px;
+	position: relative;
+}
+.block .block .blockheader{
+    background-color:#003366;
+	color:white;
+	width: 520px;
+}
+
+
+.block .block .block{
+  background: #669966;
+  padding: 2px;
+  position: relative;
+}
+.block .block .block .blockpart{
+  border: 10px solid #669966;
+  background-color: #F0F0F0 ;
+  padding: 1px;
+  position: relative;
+}
+.block .block  .block .blockheader{
+    background-color:#669966;
+	color:white;
+	width: 520px;
+}
+
+.block .block .block .block{
+  background: #CC6666;
+  padding: 2px;
+  position: relative;
+}
+.block .block .block .block .blockpart{
+  border: 10px solid #CC6666;
+  background-color: #F0F0F0 ;
+  padding: 1px;
+  position: relative;
+}
+.block .block  .block .block .blockheader{
+    background-color:#CC6666;
+	color:white;
+	width: 520px;
+}
+
+
+.atomlist li {
+  list-style: none;
+}
+
+.atomlist .termlist {
+  padding-left: 10px;
+  margin-bottom: 10px;
+  position: relative;
+}
+.termlist li{
+	list-style:none;
+}
+.atom {
+    font-weight: bold;
+}
+
+.term {
+    font-weight: bold;
+}
+
+h2 {
+  font-style: italic;
+}
+
+h3 {
+  font-style: italic;
+}
+
+.inherited{
+	color: #505050;
+	font: italic 12px Georgia,serif;;
+}
+.undefined{
+	color: #505050;
+	font: italic 12px Georgia,serif;;
+}
+
+.source{
+	position:absolute;
+	right:10px;
+	color: white;
+	font-size:14px;
+}
+.source a:link {text-decoration: none; color:white;}
+.source a:visited {text-decoration: none; color:white;}
+.source a:hover {font-weight:bold; color: salmon;}
+.source a:active {text-decoration: none}
+
+.termlist .range{
+	padding-left: 10px;
+  position: relative;
+}
+.termDescription {
+	margin-top: 10px;
+}
+table,td,th
+{
+border:1px solid black;
+}
+table
+{
+width:80%;
+}
+th
+{
+height:40px;
+}
+td{
+cellpadding: 10px;
+}
+
+pre {
+ white-space: pre-wrap;       /* css-3 */
+ white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+ white-space: -pre-wrap;      /* Opera 4-6 */
+ white-space: -o-pre-wrap;    /* Opera 7 */
+ word-wrap: break-word;       /* Internet Explorer 5.5+ */
+ width: 99%;
+}

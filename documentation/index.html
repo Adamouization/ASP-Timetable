@@ -1,0 +1,369 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta name="block" content="text/html;charset=utf-8" /><title>ASPDOC</title><link rel="stylesheet" href="style.css" type="text/css" charset="utf-8" />	</head><body><div class="block"><div class="blockheader"><h2><a name="DEFAULT"><!-- -->Block DEFAULT</a><span class="source"><a href="code.html#DEFAULT">(Check the source code of block DEFAULT)</a></span></h2></div><div class="blockpart"><pre><b>@block DEFAULT</b>
+  |_<a href="#Timetable_Data">@block Timetable_Data</a>
+  |_<a href="#Timetable">@block Timetable</a>
+    |_<a href="#Generators">@block Generators</a>
+      |_<a href="#Room_Booking">@block Room_Booking</a>
+      |_<a href="#Student_Attendance">@block Student_Attendance</a>
+    |_<a href="#Basic_Functional_System">@block Basic_Functional_System</a>
+      |_<a href="#Different_Lecturer">@block Different_Lecturer</a>
+      |_<a href="#Different_Room">@block Different_Room</a>
+      |_<a href="#Different_Room_Bis">@block Different_Room_Bis</a>
+      |_<a href="#Different_Unit">@block Different_Unit</a>
+      |_<a href="#Lecturer_not_Teach_Unit">@block Lecturer_not_Teach_Unit</a>
+      |_<a href="#Other_Commitments">@block Other_Commitments</a>
+      |_<a href="#Room_Capacity">@block Room_Capacity</a>
+    |_<a href="#Extension_1">@block Extension_1</a>
+      |_<a href="#LunchBreak">@block LunchBreak</a>
+      |_<a href="#PreferredTeachingTime">@block PreferredTeachingTime</a>
+    |_<a href="#ExtraFeature">@block ExtraFeature</a>
+    |_<a href="#Display">@block Display</a></pre><div><h2>Subblocks</h2><div class="block"><div class="blockheader"><h3><a name="Timetable_Data"><!-- -->Block Timetable_Data</a><span class="source"><a href="code.html#Timetable_Data">(Check the source code of block Timetable_Data)</a></span></h3></div><div class="blockpart"><p>Encoding of the predicates used to generate the timetable.<br/>These include:<br/>_timesteps which represent a full week (1 timestep = 2 hours, 5 timesteps per day)<br/>_units, how many hours they should be taught per week and how many hours each student enrolled should attend,<br/>_students, who take units and attend lectures,<br/>_lecturers, who teach units (at preferred teaching times and not when they have other commitments),<br/>_rooms and their student capacity.<br/></p><pre><a href="#DEFAULT">@block DEFAULT</a>
+  |_<b>@block Timetable_Data</b>
+  |_<a href="#Timetable">@block Timetable</a>
+    |_<a href="#Generators">@block Generators</a>
+      |_<a href="#Room_Booking">@block Room_Booking</a>
+      |_<a href="#Student_Attendance">@block Student_Attendance</a>
+    |_<a href="#Basic_Functional_System">@block Basic_Functional_System</a>
+      |_<a href="#Different_Lecturer">@block Different_Lecturer</a>
+      |_<a href="#Different_Room">@block Different_Room</a>
+      |_<a href="#Different_Room_Bis">@block Different_Room_Bis</a>
+      |_<a href="#Different_Unit">@block Different_Unit</a>
+      |_<a href="#Lecturer_not_Teach_Unit">@block Lecturer_not_Teach_Unit</a>
+      |_<a href="#Other_Commitments">@block Other_Commitments</a>
+      |_<a href="#Room_Capacity">@block Room_Capacity</a>
+    |_<a href="#Extension_1">@block Extension_1</a>
+      |_<a href="#LunchBreak">@block LunchBreak</a>
+      |_<a href="#PreferredTeachingTime">@block PreferredTeachingTime</a>
+    |_<a href="#ExtraFeature">@block ExtraFeature</a>
+    |_<a href="#Display">@block Display</a></pre><div class="termlist"><h3>Term Descriptions</h3><ul><li><span class="term"><a name="Timetable_Data_term_T"><!-- --></a>T:</span> T is a timestep ranging from 1 to 25 during which a lecture can be scheduled if possible</li><li><span class="term"><a name="Timetable_Data_term_U"><!-- --></a>U:</span> U is a unit taught by a single lecturer and taken by multiple students S</li><li><span class="term"><a name="Timetable_Data_term_S"><!-- --></a>S:</span> S is a student who takes units and attends lectures</li><li><span class="term"><a name="Timetable_Data_term_H"><!-- --></a>H:</span> H is the number of lectures scheduled for a unit AND the number of scheduled lectures a student must take for a single unit</li><li><span class="term"><a name="Timetable_Data_term_R"><!-- --></a>R:</span> R is a room where a lecture takes place</li><li><span class="term"><a name="Timetable_Data_term_C"><!-- --></a>C:</span> C is a room capacity to limit the number of students attending a lecture at the same time</li><li><span class="term"><a name="Timetable_Data_term_L"><!-- --></a>L:</span> L is a lecturer who teaches a unit</li><li><span class="term"><a name="Timetable_Data_term_O"><!-- --></a>O:</span> O is a timestep at which a lecturer has other commitments and therefore cannot teach</li><li><span class="term"><a name="Timetable_Data_term_P"><!-- --></a>P:</span> P is a timestep at which a lecturer would like to teach if it is possible</li></ul></div><div class="atomlist"><h3>Hidden Atoms</h3><ul><li><span class="atom"><a name="Timetable_Data_hiddens_timesteps1"><!-- --></a>timesteps(T)
+</span> <br/>the amount of slots in which lectures can be scheduled<br/><div class="termlist"><div class="termDescription"><ul><li><span class="term"><a href="#Timetable_Data_term_T">T</a>: </span> T is a timestep ranging from 1 to 25 during which a lecture can be scheduled if possible 
+</li></ul></div></div></li><li><span class="atom"><a name="Timetable_Data_hiddens_takes2"><!-- --></a>takes(U, S)
+</span> <br/>a student name's S and a unit U he is enrolled in<br/><div class="termlist"><div class="termDescription"><ul><li><span class="term"><a href="#Timetable_Data_term_U">U</a>: </span> U is a unit taught by a single lecturer and taken by multiple students S 
+</li><li><span class="term"><a href="#Timetable_Data_term_S">S</a>: </span> S is a student who takes units and attends lectures 
+</li></ul></div></div></li><li><span class="atom"><a name="Timetable_Data_hiddens_hoursStudentUnit2"><!-- --></a>hoursStudentUnit(H, U)
+</span> <br/>the number of hours a student should attend for each unit<br/><div class="termlist"><div class="termDescription"><ul><li><span class="term"><a href="#Timetable_Data_term_H">H</a>: </span> H is the number of lectures scheduled for a unit AND the number of scheduled lectures a student must take for a single unit 
+</li><li><span class="term"><a href="#Timetable_Data_term_U">U</a>: </span> U is a unit taught by a single lecturer and taken by multiple students S 
+</li></ul></div></div></li><li><span class="atom"><a name="Timetable_Data_hiddens_room2"><!-- --></a>room(R, C)
+</span> <br/>a room name's R and its student capacity<br/><div class="termlist"><div class="termDescription"><ul><li><span class="term"><a href="#Timetable_Data_term_R">R</a>: </span> R is a room where a lecture takes place 
+</li><li><span class="term"><a href="#Timetable_Data_term_C">C</a>: </span> C is a room capacity to limit the number of students attending a lecture at the same time 
+</li></ul></div></div></li><li><span class="atom"><a name="Timetable_Data_hiddens_hoursUnit2"><!-- --></a>hoursUnit(H, U)
+</span> <br/>how many hours a unit is taught by a lecturer<br/><div class="termlist"><div class="termDescription"><ul><li><span class="term"><a href="#Timetable_Data_term_H">H</a>: </span> H is the number of lectures scheduled for a unit AND the number of scheduled lectures a student must take for a single unit 
+</li><li><span class="term"><a href="#Timetable_Data_term_U">U</a>: </span> U is a unit taught by a single lecturer and taken by multiple students S 
+</li></ul></div></div></li><li><span class="atom"><a name="Timetable_Data_hiddens_teaches2"><!-- --></a>teaches(U, L)
+</span> <br/>the lecturer's name L and a unit U he teaches<br/><div class="termlist"><div class="termDescription"><ul><li><span class="term"><a href="#Timetable_Data_term_U">U</a>: </span> U is a unit taught by a single lecturer and taken by multiple students S 
+</li><li><span class="term"><a href="#Timetable_Data_term_L">L</a>: </span> L is a lecturer who teaches a unit 
+</li></ul></div></div></li><li><span class="atom"><a name="Timetable_Data_hiddens_commitments2"><!-- --></a>commitments(O, L)
+</span> <br/>the lecturer L has another commitment at timestep O and cannot teach<br/><div class="termlist"><div class="termDescription"><ul><li><span class="term"><a href="#Timetable_Data_term_O">O</a>: </span> O is a timestep at which a lecturer has other commitments and therefore cannot teach 
+</li><li><span class="term"><a href="#Timetable_Data_term_L">L</a>: </span> L is a lecturer who teaches a unit 
+</li></ul></div></div></li><li><span class="atom"><a name="Timetable_Data_hiddens_preferred2"><!-- --></a>preferred(P, L)
+</span> <br/>the lecturer L would like to teach at timestep P if possible<br/><div class="termlist"><div class="termDescription"><ul><li><span class="term"><a href="#Timetable_Data_term_P">P</a>: </span> P is a timestep at which a lecturer would like to teach if it is possible 
+</li><li><span class="term"><a href="#Timetable_Data_term_L">L</a>: </span> L is a lecturer who teaches a unit 
+</li></ul></div></div></li></ul></div></div></div><pre><br/></pre><div class="block"><div class="blockheader"><h3><a name="Timetable"><!-- -->Block Timetable</a><span class="source"><a href="code.html#Timetable">(Check the source code of block Timetable)</a></span></h3></div><div class="blockpart"><p>Encoding of Timetabling logic.<br/></p><pre><a href="#DEFAULT">@block DEFAULT</a>
+  |_<a href="#Timetable_Data">@block Timetable_Data</a>
+  |_<b>@block Timetable</b>
+    |_<a href="#Generators">@block Generators</a>
+      |_<a href="#Room_Booking">@block Room_Booking</a>
+      |_<a href="#Student_Attendance">@block Student_Attendance</a>
+    |_<a href="#Basic_Functional_System">@block Basic_Functional_System</a>
+      |_<a href="#Different_Lecturer">@block Different_Lecturer</a>
+      |_<a href="#Different_Room">@block Different_Room</a>
+      |_<a href="#Different_Room_Bis">@block Different_Room_Bis</a>
+      |_<a href="#Different_Unit">@block Different_Unit</a>
+      |_<a href="#Lecturer_not_Teach_Unit">@block Lecturer_not_Teach_Unit</a>
+      |_<a href="#Other_Commitments">@block Other_Commitments</a>
+      |_<a href="#Room_Capacity">@block Room_Capacity</a>
+    |_<a href="#Extension_1">@block Extension_1</a>
+      |_<a href="#LunchBreak">@block LunchBreak</a>
+      |_<a href="#PreferredTeachingTime">@block PreferredTeachingTime</a>
+    |_<a href="#ExtraFeature">@block ExtraFeature</a>
+    |_<a href="#Display">@block Display</a></pre><div class="atomlist"><h3>Output Atoms</h3><ul><li><span class="atom"><a name="Timetable_outputs_roomBooked5"><!-- --></a>roomBooked(T, U, L, R, C)
+</span> <br/>represents a scheduled lecture at a timestep T, for a unit U, taught by a lecturer L, in a room R with a student capacity C.<br/><div class="termlist"><div class="termDescription"><ul></ul></div></div></li><li><span class="atom"><a name="Timetable_outputs_attendance5"><!-- --></a>attendance(T, U, S, R, C)
+</span> <br/>represents a student attending a scheduled lecture at a timestep T, for a unit U, in a room R with a student capacity C.<br/><div class="termlist"><div class="termDescription"><ul></ul></div></div></li></ul></div><div class="atomlist"><h3>Hidden Atoms</h3><ul><li><span class="atom"><a name="Timetable_hiddens_capacity3"><!-- --></a>capacity(T, R, Total)
+</span> <br/>represents the number of students Total attending a scheduled lecture at timestep T in a room R.<br/><div class="termlist"><div class="termDescription"><ul></ul></div></div></li></ul></div><div><h3>Subblocks</h3><div class="block"><div class="blockheader"><h3><a name="Generators"><!-- -->Block Generators</a><span class="source"><a href="code.html#Generators">(Check the source code of block Generators)</a></span></h3></div><div class="blockpart"><p>Schedules H lectures in a room at a specified timestep, where lecturers teach their unit and students attend it H times.<br/>Also satisfies some requirements for the basic functional system stated in the coursework specification, including:<br/>_ students should have all their units scheduled,<br/>_ lecturers should have all their units scheduled.<br/>Note: 	by including the atoms generated in the first generator into the second one, the rules/constraints applied to schedule lectures for lectures<br/>are inherited by students since they can only attend lectures which are correctly scheduled (fit all the requirements specified).<br/></p><pre><a href="#DEFAULT">@block DEFAULT</a>
+  |_<a href="#Timetable_Data">@block Timetable_Data</a>
+  |_<a href="#Timetable">@block Timetable</a>
+    |_<b>@block Generators</b>
+      |_<a href="#Room_Booking">@block Room_Booking</a>
+      |_<a href="#Student_Attendance">@block Student_Attendance</a>
+    |_<a href="#Basic_Functional_System">@block Basic_Functional_System</a>
+      |_<a href="#Different_Lecturer">@block Different_Lecturer</a>
+      |_<a href="#Different_Room">@block Different_Room</a>
+      |_<a href="#Different_Room_Bis">@block Different_Room_Bis</a>
+      |_<a href="#Different_Unit">@block Different_Unit</a>
+      |_<a href="#Lecturer_not_Teach_Unit">@block Lecturer_not_Teach_Unit</a>
+      |_<a href="#Other_Commitments">@block Other_Commitments</a>
+      |_<a href="#Room_Capacity">@block Room_Capacity</a>
+    |_<a href="#Extension_1">@block Extension_1</a>
+      |_<a href="#LunchBreak">@block LunchBreak</a>
+      |_<a href="#PreferredTeachingTime">@block PreferredTeachingTime</a>
+    |_<a href="#ExtraFeature">@block ExtraFeature</a>
+    |_<a href="#Display">@block Display</a></pre><div><h3>Subblocks</h3><div class="block"><div class="blockheader"><h3><a name="Room_Booking"><!-- -->Block Room_Booking</a><span class="source"><a href="code.html#Room_Booking">(Check the source code of block Room_Booking)</a></span></h3></div><div class="blockpart"><p>Schedules H lectures to be taught by a lecturer L, in a room R (with student capacity C), for a unit U, at timestep T.<br/>H corresponds to the H of the 'hoursUnit(H,U)' predicate found in 'atoms.lp', which corresponds to the number of lectures that should be scheduled for each unit.<br/></p><pre><a href="#DEFAULT">@block DEFAULT</a>
+  |_<a href="#Timetable_Data">@block Timetable_Data</a>
+  |_<a href="#Timetable">@block Timetable</a>
+    |_<a href="#Generators">@block Generators</a>
+      |_<b>@block Room_Booking</b>
+      |_<a href="#Student_Attendance">@block Student_Attendance</a>
+    |_<a href="#Basic_Functional_System">@block Basic_Functional_System</a>
+      |_<a href="#Different_Lecturer">@block Different_Lecturer</a>
+      |_<a href="#Different_Room">@block Different_Room</a>
+      |_<a href="#Different_Room_Bis">@block Different_Room_Bis</a>
+      |_<a href="#Different_Unit">@block Different_Unit</a>
+      |_<a href="#Lecturer_not_Teach_Unit">@block Lecturer_not_Teach_Unit</a>
+      |_<a href="#Other_Commitments">@block Other_Commitments</a>
+      |_<a href="#Room_Capacity">@block Room_Capacity</a>
+    |_<a href="#Extension_1">@block Extension_1</a>
+      |_<a href="#LunchBreak">@block LunchBreak</a>
+      |_<a href="#PreferredTeachingTime">@block PreferredTeachingTime</a>
+    |_<a href="#ExtraFeature">@block ExtraFeature</a>
+    |_<a href="#Display">@block Display</a></pre></div></div><pre><br/></pre><div class="block"><div class="blockheader"><h3><a name="Student_Attendance"><!-- -->Block Student_Attendance</a><span class="source"><a href="code.html#Student_Attendance">(Check the source code of block Student_Attendance)</a></span></h3></div><div class="blockpart"><p>Schedules which lectures a student S should attend for units U he is enrolled in, in a room R (with student capacity C), at timestep T.<br/>Each student must attend H lectures for a unit he takees, where H corresponds to the H of the 'hoursStudentUnit(H,U)' predicate found in 'atoms.lp',<br/>which corresponds to the number of lectures that a student should attend for each unit he is enrolled in.<br/></p><pre><a href="#DEFAULT">@block DEFAULT</a>
+  |_<a href="#Timetable_Data">@block Timetable_Data</a>
+  |_<a href="#Timetable">@block Timetable</a>
+    |_<a href="#Generators">@block Generators</a>
+      |_<a href="#Room_Booking">@block Room_Booking</a>
+      |_<b>@block Student_Attendance</b>
+    |_<a href="#Basic_Functional_System">@block Basic_Functional_System</a>
+      |_<a href="#Different_Lecturer">@block Different_Lecturer</a>
+      |_<a href="#Different_Room">@block Different_Room</a>
+      |_<a href="#Different_Room_Bis">@block Different_Room_Bis</a>
+      |_<a href="#Different_Unit">@block Different_Unit</a>
+      |_<a href="#Lecturer_not_Teach_Unit">@block Lecturer_not_Teach_Unit</a>
+      |_<a href="#Other_Commitments">@block Other_Commitments</a>
+      |_<a href="#Room_Capacity">@block Room_Capacity</a>
+    |_<a href="#Extension_1">@block Extension_1</a>
+      |_<a href="#LunchBreak">@block LunchBreak</a>
+      |_<a href="#PreferredTeachingTime">@block PreferredTeachingTime</a>
+    |_<a href="#ExtraFeature">@block ExtraFeature</a>
+    |_<a href="#Display">@block Display</a></pre></div></div></div></div></div><pre><br/></pre><div class="block"><div class="blockheader"><h3><a name="Basic_Functional_System"><!-- -->Block Basic_Functional_System</a><span class="source"><a href="code.html#Basic_Functional_System">(Check the source code of block Basic_Functional_System)</a></span></h3></div><div class="blockpart"><p>Constraints & rules are used to satisfy the requirements for the basic functional system stated in the coursework specification, including:<br/>_ students should not be forced to attend two lectures at the same time,<br/>_ lecturers cannot teach two units at the same time,<br/>_ rooms can only be used for one lecture at the time,<br/>_ lecturers cannot teach when they have other commitments.<br/></p><pre><a href="#DEFAULT">@block DEFAULT</a>
+  |_<a href="#Timetable_Data">@block Timetable_Data</a>
+  |_<a href="#Timetable">@block Timetable</a>
+    |_<a href="#Generators">@block Generators</a>
+      |_<a href="#Room_Booking">@block Room_Booking</a>
+      |_<a href="#Student_Attendance">@block Student_Attendance</a>
+    |_<b>@block Basic_Functional_System</b>
+      |_<a href="#Different_Lecturer">@block Different_Lecturer</a>
+      |_<a href="#Different_Room">@block Different_Room</a>
+      |_<a href="#Different_Room_Bis">@block Different_Room_Bis</a>
+      |_<a href="#Different_Unit">@block Different_Unit</a>
+      |_<a href="#Lecturer_not_Teach_Unit">@block Lecturer_not_Teach_Unit</a>
+      |_<a href="#Other_Commitments">@block Other_Commitments</a>
+      |_<a href="#Room_Capacity">@block Room_Capacity</a>
+    |_<a href="#Extension_1">@block Extension_1</a>
+      |_<a href="#LunchBreak">@block LunchBreak</a>
+      |_<a href="#PreferredTeachingTime">@block PreferredTeachingTime</a>
+    |_<a href="#ExtraFeature">@block ExtraFeature</a>
+    |_<a href="#Display">@block Display</a></pre><div><h3>Subblocks</h3><div class="block"><div class="blockheader"><h3><a name="Different_Lecturer"><!-- -->Block Different_Lecturer</a><span class="source"><a href="code.html#Different_Lecturer">(Check the source code of block Different_Lecturer)</a></span></h3></div><div class="blockpart"><p>Removes answers where the lecturer is different for a lecture scheduled in the same room for the same unit.<br/></p><pre><a href="#DEFAULT">@block DEFAULT</a>
+  |_<a href="#Timetable_Data">@block Timetable_Data</a>
+  |_<a href="#Timetable">@block Timetable</a>
+    |_<a href="#Generators">@block Generators</a>
+      |_<a href="#Room_Booking">@block Room_Booking</a>
+      |_<a href="#Student_Attendance">@block Student_Attendance</a>
+    |_<a href="#Basic_Functional_System">@block Basic_Functional_System</a>
+      |_<b>@block Different_Lecturer</b>
+      |_<a href="#Different_Room">@block Different_Room</a>
+      |_<a href="#Different_Room_Bis">@block Different_Room_Bis</a>
+      |_<a href="#Different_Unit">@block Different_Unit</a>
+      |_<a href="#Lecturer_not_Teach_Unit">@block Lecturer_not_Teach_Unit</a>
+      |_<a href="#Other_Commitments">@block Other_Commitments</a>
+      |_<a href="#Room_Capacity">@block Room_Capacity</a>
+    |_<a href="#Extension_1">@block Extension_1</a>
+      |_<a href="#LunchBreak">@block LunchBreak</a>
+      |_<a href="#PreferredTeachingTime">@block PreferredTeachingTime</a>
+    |_<a href="#ExtraFeature">@block ExtraFeature</a>
+    |_<a href="#Display">@block Display</a></pre></div></div><pre><br/></pre><div class="block"><div class="blockheader"><h3><a name="Different_Room"><!-- -->Block Different_Room</a><span class="source"><a href="code.html#Different_Room">(Check the source code of block Different_Room)</a></span></h3></div><div class="blockpart"><p>Removes answers where the room is different for a same lecture scheduled in at same timestep for the same unit.<br/></p><pre><a href="#DEFAULT">@block DEFAULT</a>
+  |_<a href="#Timetable_Data">@block Timetable_Data</a>
+  |_<a href="#Timetable">@block Timetable</a>
+    |_<a href="#Generators">@block Generators</a>
+      |_<a href="#Room_Booking">@block Room_Booking</a>
+      |_<a href="#Student_Attendance">@block Student_Attendance</a>
+    |_<a href="#Basic_Functional_System">@block Basic_Functional_System</a>
+      |_<a href="#Different_Lecturer">@block Different_Lecturer</a>
+      |_<b>@block Different_Room</b>
+      |_<a href="#Different_Room_Bis">@block Different_Room_Bis</a>
+      |_<a href="#Different_Unit">@block Different_Unit</a>
+      |_<a href="#Lecturer_not_Teach_Unit">@block Lecturer_not_Teach_Unit</a>
+      |_<a href="#Other_Commitments">@block Other_Commitments</a>
+      |_<a href="#Room_Capacity">@block Room_Capacity</a>
+    |_<a href="#Extension_1">@block Extension_1</a>
+      |_<a href="#LunchBreak">@block LunchBreak</a>
+      |_<a href="#PreferredTeachingTime">@block PreferredTeachingTime</a>
+    |_<a href="#ExtraFeature">@block ExtraFeature</a>
+    |_<a href="#Display">@block Display</a></pre></div></div><pre><br/></pre><div class="block"><div class="blockheader"><h3><a name="Different_Room_Bis"><!-- -->Block Different_Room_Bis</a><span class="source"><a href="code.html#Different_Room_Bis">(Check the source code of block Different_Room_Bis)</a></span></h3></div><div class="blockpart"><p>Removes answers where the room is different for a same lecture scheduled in at same timestep with the same lecturer.<br/></p><pre><a href="#DEFAULT">@block DEFAULT</a>
+  |_<a href="#Timetable_Data">@block Timetable_Data</a>
+  |_<a href="#Timetable">@block Timetable</a>
+    |_<a href="#Generators">@block Generators</a>
+      |_<a href="#Room_Booking">@block Room_Booking</a>
+      |_<a href="#Student_Attendance">@block Student_Attendance</a>
+    |_<a href="#Basic_Functional_System">@block Basic_Functional_System</a>
+      |_<a href="#Different_Lecturer">@block Different_Lecturer</a>
+      |_<a href="#Different_Room">@block Different_Room</a>
+      |_<b>@block Different_Room_Bis</b>
+      |_<a href="#Different_Unit">@block Different_Unit</a>
+      |_<a href="#Lecturer_not_Teach_Unit">@block Lecturer_not_Teach_Unit</a>
+      |_<a href="#Other_Commitments">@block Other_Commitments</a>
+      |_<a href="#Room_Capacity">@block Room_Capacity</a>
+    |_<a href="#Extension_1">@block Extension_1</a>
+      |_<a href="#LunchBreak">@block LunchBreak</a>
+      |_<a href="#PreferredTeachingTime">@block PreferredTeachingTime</a>
+    |_<a href="#ExtraFeature">@block ExtraFeature</a>
+    |_<a href="#Display">@block Display</a></pre></div></div><pre><br/></pre><div class="block"><div class="blockheader"><h3><a name="Different_Unit"><!-- -->Block Different_Unit</a><span class="source"><a href="code.html#Different_Unit">(Check the source code of block Different_Unit)</a></span></h3></div><div class="blockpart"><p>Removes answers where the unit is different for a same lecture scheduled in at same timestep in the same room.<br/></p><pre><a href="#DEFAULT">@block DEFAULT</a>
+  |_<a href="#Timetable_Data">@block Timetable_Data</a>
+  |_<a href="#Timetable">@block Timetable</a>
+    |_<a href="#Generators">@block Generators</a>
+      |_<a href="#Room_Booking">@block Room_Booking</a>
+      |_<a href="#Student_Attendance">@block Student_Attendance</a>
+    |_<a href="#Basic_Functional_System">@block Basic_Functional_System</a>
+      |_<a href="#Different_Lecturer">@block Different_Lecturer</a>
+      |_<a href="#Different_Room">@block Different_Room</a>
+      |_<a href="#Different_Room_Bis">@block Different_Room_Bis</a>
+      |_<b>@block Different_Unit</b>
+      |_<a href="#Lecturer_not_Teach_Unit">@block Lecturer_not_Teach_Unit</a>
+      |_<a href="#Other_Commitments">@block Other_Commitments</a>
+      |_<a href="#Room_Capacity">@block Room_Capacity</a>
+    |_<a href="#Extension_1">@block Extension_1</a>
+      |_<a href="#LunchBreak">@block LunchBreak</a>
+      |_<a href="#PreferredTeachingTime">@block PreferredTeachingTime</a>
+    |_<a href="#ExtraFeature">@block ExtraFeature</a>
+    |_<a href="#Display">@block Display</a></pre></div></div><pre><br/></pre><div class="block"><div class="blockheader"><h3><a name="Lecturer_not_Teach_Unit"><!-- -->Block Lecturer_not_Teach_Unit</a><span class="source"><a href="code.html#Lecturer_not_Teach_Unit">(Check the source code of block Lecturer_not_Teach_Unit)</a></span></h3></div><div class="blockpart"><p>Removes answers where a lecturer teaches a unit that is not his.<br/></p><pre><a href="#DEFAULT">@block DEFAULT</a>
+  |_<a href="#Timetable_Data">@block Timetable_Data</a>
+  |_<a href="#Timetable">@block Timetable</a>
+    |_<a href="#Generators">@block Generators</a>
+      |_<a href="#Room_Booking">@block Room_Booking</a>
+      |_<a href="#Student_Attendance">@block Student_Attendance</a>
+    |_<a href="#Basic_Functional_System">@block Basic_Functional_System</a>
+      |_<a href="#Different_Lecturer">@block Different_Lecturer</a>
+      |_<a href="#Different_Room">@block Different_Room</a>
+      |_<a href="#Different_Room_Bis">@block Different_Room_Bis</a>
+      |_<a href="#Different_Unit">@block Different_Unit</a>
+      |_<b>@block Lecturer_not_Teach_Unit</b>
+      |_<a href="#Other_Commitments">@block Other_Commitments</a>
+      |_<a href="#Room_Capacity">@block Room_Capacity</a>
+    |_<a href="#Extension_1">@block Extension_1</a>
+      |_<a href="#LunchBreak">@block LunchBreak</a>
+      |_<a href="#PreferredTeachingTime">@block PreferredTeachingTime</a>
+    |_<a href="#ExtraFeature">@block ExtraFeature</a>
+    |_<a href="#Display">@block Display</a></pre></div></div><pre><br/></pre><div class="block"><div class="blockheader"><h3><a name="Other_Commitments"><!-- -->Block Other_Commitments</a><span class="source"><a href="code.html#Other_Commitments">(Check the source code of block Other_Commitments)</a></span></h3></div><div class="blockpart"><p>Removes answers where a lecturer teaches at a timestep identical to the timesteps when he has other commitments.<br/></p><pre><a href="#DEFAULT">@block DEFAULT</a>
+  |_<a href="#Timetable_Data">@block Timetable_Data</a>
+  |_<a href="#Timetable">@block Timetable</a>
+    |_<a href="#Generators">@block Generators</a>
+      |_<a href="#Room_Booking">@block Room_Booking</a>
+      |_<a href="#Student_Attendance">@block Student_Attendance</a>
+    |_<a href="#Basic_Functional_System">@block Basic_Functional_System</a>
+      |_<a href="#Different_Lecturer">@block Different_Lecturer</a>
+      |_<a href="#Different_Room">@block Different_Room</a>
+      |_<a href="#Different_Room_Bis">@block Different_Room_Bis</a>
+      |_<a href="#Different_Unit">@block Different_Unit</a>
+      |_<a href="#Lecturer_not_Teach_Unit">@block Lecturer_not_Teach_Unit</a>
+      |_<b>@block Other_Commitments</b>
+      |_<a href="#Room_Capacity">@block Room_Capacity</a>
+    |_<a href="#Extension_1">@block Extension_1</a>
+      |_<a href="#LunchBreak">@block LunchBreak</a>
+      |_<a href="#PreferredTeachingTime">@block PreferredTeachingTime</a>
+    |_<a href="#ExtraFeature">@block ExtraFeature</a>
+    |_<a href="#Display">@block Display</a></pre></div></div><pre><br/></pre><div class="block"><div class="blockheader"><h3><a name="Room_Capacity"><!-- -->Block Room_Capacity</a><span class="source"><a href="code.html#Room_Capacity">(Check the source code of block Room_Capacity)</a></span></h3></div><div class="blockpart"><p>First counts number of students in a specific room R at a timestep T,<br/>Then removes answer where the number of students in a room exceeds the room's student capacity.<br/></p><pre><a href="#DEFAULT">@block DEFAULT</a>
+  |_<a href="#Timetable_Data">@block Timetable_Data</a>
+  |_<a href="#Timetable">@block Timetable</a>
+    |_<a href="#Generators">@block Generators</a>
+      |_<a href="#Room_Booking">@block Room_Booking</a>
+      |_<a href="#Student_Attendance">@block Student_Attendance</a>
+    |_<a href="#Basic_Functional_System">@block Basic_Functional_System</a>
+      |_<a href="#Different_Lecturer">@block Different_Lecturer</a>
+      |_<a href="#Different_Room">@block Different_Room</a>
+      |_<a href="#Different_Room_Bis">@block Different_Room_Bis</a>
+      |_<a href="#Different_Unit">@block Different_Unit</a>
+      |_<a href="#Lecturer_not_Teach_Unit">@block Lecturer_not_Teach_Unit</a>
+      |_<a href="#Other_Commitments">@block Other_Commitments</a>
+      |_<b>@block Room_Capacity</b>
+    |_<a href="#Extension_1">@block Extension_1</a>
+      |_<a href="#LunchBreak">@block LunchBreak</a>
+      |_<a href="#PreferredTeachingTime">@block PreferredTeachingTime</a>
+    |_<a href="#ExtraFeature">@block ExtraFeature</a>
+    |_<a href="#Display">@block Display</a></pre></div></div></div></div></div><pre><br/></pre><div class="block"><div class="blockheader"><h3><a name="Extension_1"><!-- -->Block Extension_1</a><span class="source"><a href="code.html#Extension_1">(Check the source code of block Extension_1)</a></span></h3></div><div class="blockpart"><p>Weak constraints are used to satisfy the requirements for extension 1 stated in the coursework specification, including:<br/>_ lecturers can have preferred teaching times and the timetables take this into account as much as possible.<br/>_ timetables offer a lunch break where possible.<br/></p><pre><a href="#DEFAULT">@block DEFAULT</a>
+  |_<a href="#Timetable_Data">@block Timetable_Data</a>
+  |_<a href="#Timetable">@block Timetable</a>
+    |_<a href="#Generators">@block Generators</a>
+      |_<a href="#Room_Booking">@block Room_Booking</a>
+      |_<a href="#Student_Attendance">@block Student_Attendance</a>
+    |_<a href="#Basic_Functional_System">@block Basic_Functional_System</a>
+      |_<a href="#Different_Lecturer">@block Different_Lecturer</a>
+      |_<a href="#Different_Room">@block Different_Room</a>
+      |_<a href="#Different_Room_Bis">@block Different_Room_Bis</a>
+      |_<a href="#Different_Unit">@block Different_Unit</a>
+      |_<a href="#Lecturer_not_Teach_Unit">@block Lecturer_not_Teach_Unit</a>
+      |_<a href="#Other_Commitments">@block Other_Commitments</a>
+      |_<a href="#Room_Capacity">@block Room_Capacity</a>
+    |_<b>@block Extension_1</b>
+      |_<a href="#LunchBreak">@block LunchBreak</a>
+      |_<a href="#PreferredTeachingTime">@block PreferredTeachingTime</a>
+    |_<a href="#ExtraFeature">@block ExtraFeature</a>
+    |_<a href="#Display">@block Display</a></pre><div><h3>Subblocks</h3><div class="block"><div class="blockheader"><h3><a name="LunchBreak"><!-- -->Block LunchBreak</a><span class="source"><a href="code.html#LunchBreak">(Check the source code of block LunchBreak)</a></span></h3></div><div class="blockpart"><p>Adds 10 penalty points for each lecture that is scheduled during the lunchbreak timesteps.<br/>Lunch breaks are at timesteps 3, 8, 13, 18 and 23<br/>Weak constraints are used to schedule a lecture during the lunch break if needed, otherwise lectures are scheduled outside lunchbreaks.<br/>For each lecture scheduled during a lunch break period, 10 penalty points are added to the current model.<br/></p><pre><a href="#DEFAULT">@block DEFAULT</a>
+  |_<a href="#Timetable_Data">@block Timetable_Data</a>
+  |_<a href="#Timetable">@block Timetable</a>
+    |_<a href="#Generators">@block Generators</a>
+      |_<a href="#Room_Booking">@block Room_Booking</a>
+      |_<a href="#Student_Attendance">@block Student_Attendance</a>
+    |_<a href="#Basic_Functional_System">@block Basic_Functional_System</a>
+      |_<a href="#Different_Lecturer">@block Different_Lecturer</a>
+      |_<a href="#Different_Room">@block Different_Room</a>
+      |_<a href="#Different_Room_Bis">@block Different_Room_Bis</a>
+      |_<a href="#Different_Unit">@block Different_Unit</a>
+      |_<a href="#Lecturer_not_Teach_Unit">@block Lecturer_not_Teach_Unit</a>
+      |_<a href="#Other_Commitments">@block Other_Commitments</a>
+      |_<a href="#Room_Capacity">@block Room_Capacity</a>
+    |_<a href="#Extension_1">@block Extension_1</a>
+      |_<b>@block LunchBreak</b>
+      |_<a href="#PreferredTeachingTime">@block PreferredTeachingTime</a>
+    |_<a href="#ExtraFeature">@block ExtraFeature</a>
+    |_<a href="#Display">@block Display</a></pre></div></div><pre><br/></pre><div class="block"><div class="blockheader"><h3><a name="PreferredTeachingTime"><!-- -->Block PreferredTeachingTime</a><span class="source"><a href="code.html#PreferredTeachingTime">(Check the source code of block PreferredTeachingTime)</a></span></h3></div><div class="blockpart"><p>Adds 10 penalty points for each lecturer who doesn't teach at his preferred timestep.<br/>Preferred teaching times are specified in the 'atoms.lp' file under the 'preferred(P,L)' atoms.<br/></p><pre><a href="#DEFAULT">@block DEFAULT</a>
+  |_<a href="#Timetable_Data">@block Timetable_Data</a>
+  |_<a href="#Timetable">@block Timetable</a>
+    |_<a href="#Generators">@block Generators</a>
+      |_<a href="#Room_Booking">@block Room_Booking</a>
+      |_<a href="#Student_Attendance">@block Student_Attendance</a>
+    |_<a href="#Basic_Functional_System">@block Basic_Functional_System</a>
+      |_<a href="#Different_Lecturer">@block Different_Lecturer</a>
+      |_<a href="#Different_Room">@block Different_Room</a>
+      |_<a href="#Different_Room_Bis">@block Different_Room_Bis</a>
+      |_<a href="#Different_Unit">@block Different_Unit</a>
+      |_<a href="#Lecturer_not_Teach_Unit">@block Lecturer_not_Teach_Unit</a>
+      |_<a href="#Other_Commitments">@block Other_Commitments</a>
+      |_<a href="#Room_Capacity">@block Room_Capacity</a>
+    |_<a href="#Extension_1">@block Extension_1</a>
+      |_<a href="#LunchBreak">@block LunchBreak</a>
+      |_<b>@block PreferredTeachingTime</b>
+    |_<a href="#ExtraFeature">@block ExtraFeature</a>
+    |_<a href="#Display">@block Display</a></pre></div></div></div></div></div><pre><br/></pre><div class="block"><div class="blockheader"><h3><a name="ExtraFeature"><!-- -->Block ExtraFeature</a><span class="source"><a href="code.html#ExtraFeature">(Check the source code of block ExtraFeature)</a></span></h3></div><div class="blockpart"><p>Extra feature taking into account breaks on Wednesday afternoons for extra activities.<br/>The rule wednesdayOff books a room at the timesteps corresponding to a wednesday afternoon, thus making sure no lectures can be scheduled during that time.<br/></p><pre><a href="#DEFAULT">@block DEFAULT</a>
+  |_<a href="#Timetable_Data">@block Timetable_Data</a>
+  |_<a href="#Timetable">@block Timetable</a>
+    |_<a href="#Generators">@block Generators</a>
+      |_<a href="#Room_Booking">@block Room_Booking</a>
+      |_<a href="#Student_Attendance">@block Student_Attendance</a>
+    |_<a href="#Basic_Functional_System">@block Basic_Functional_System</a>
+      |_<a href="#Different_Lecturer">@block Different_Lecturer</a>
+      |_<a href="#Different_Room">@block Different_Room</a>
+      |_<a href="#Different_Room_Bis">@block Different_Room_Bis</a>
+      |_<a href="#Different_Unit">@block Different_Unit</a>
+      |_<a href="#Lecturer_not_Teach_Unit">@block Lecturer_not_Teach_Unit</a>
+      |_<a href="#Other_Commitments">@block Other_Commitments</a>
+      |_<a href="#Room_Capacity">@block Room_Capacity</a>
+    |_<a href="#Extension_1">@block Extension_1</a>
+      |_<a href="#LunchBreak">@block LunchBreak</a>
+      |_<a href="#PreferredTeachingTime">@block PreferredTeachingTime</a>
+    |_<b>@block ExtraFeature</b>
+    |_<a href="#Display">@block Display</a></pre></div></div><pre><br/></pre><div class="block"><div class="blockheader"><h3><a name="Display"><!-- -->Block Display</a><span class="source"><a href="code.html#Display">(Check the source code of block Display)</a></span></h3></div><div class="blockpart"><p>Outputs only the roomBooked and attendance atoms to the terminal.<br/></p><pre><a href="#DEFAULT">@block DEFAULT</a>
+  |_<a href="#Timetable_Data">@block Timetable_Data</a>
+  |_<a href="#Timetable">@block Timetable</a>
+    |_<a href="#Generators">@block Generators</a>
+      |_<a href="#Room_Booking">@block Room_Booking</a>
+      |_<a href="#Student_Attendance">@block Student_Attendance</a>
+    |_<a href="#Basic_Functional_System">@block Basic_Functional_System</a>
+      |_<a href="#Different_Lecturer">@block Different_Lecturer</a>
+      |_<a href="#Different_Room">@block Different_Room</a>
+      |_<a href="#Different_Room_Bis">@block Different_Room_Bis</a>
+      |_<a href="#Different_Unit">@block Different_Unit</a>
+      |_<a href="#Lecturer_not_Teach_Unit">@block Lecturer_not_Teach_Unit</a>
+      |_<a href="#Other_Commitments">@block Other_Commitments</a>
+      |_<a href="#Room_Capacity">@block Room_Capacity</a>
+    |_<a href="#Extension_1">@block Extension_1</a>
+      |_<a href="#LunchBreak">@block LunchBreak</a>
+      |_<a href="#PreferredTeachingTime">@block PreferredTeachingTime</a>
+    |_<a href="#ExtraFeature">@block ExtraFeature</a>
+    |_<b>@block Display</b></pre></div></div></div></div></div></div></div></div></body></html>

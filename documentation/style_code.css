@@ -1,0 +1,79 @@
+a:link {text-decoration: none; color:#003399;}
+a:visited {text-decoration: none; color:#003399;}
+
+a:hover {font-weight:bold; color: red;}
+a:active {text-decoration: none}
+
+.asp{
+	color: black;
+}
+.asp a:link {text-decoration: none; color:black;}
+.asp a:visited {text-decoration: none; color:black;}
+.asp a:hover {font-weight:bold; color: #E65C5C; font-size:110%}
+.asp a:active {text-decoration: none}
+
+.asp .nolink{
+	color: #4C4C4C;
+}
+.condition .asp{
+	color: black;
+}
+.condition	a:link {text-decoration: none; color:#000040;}
+.condition	a:visited {text-decoration: none; color:#000040;}
+.condition	a:hover {font-weight:bold; color: red; font-size:110%}
+.condition	a:active {text-decoration: none}
+
+.condition .asp .nolink{
+	color: #4C4C4C;
+}
+.condition .nolink{
+	color: #003399 ;
+}
+.conheader	a:link {text-decoration: none; color:#003399;}
+.conheader	a:visited {text-decoration: none; color:#003399;}
+.conheader	a:hover {font-weight:bold; color: red; font-size:110%}
+.conheader	a:active {text-decoration: none}
+.doc{
+	color: #003399;
+}
+.indent{
+	padding-left : 0px;
+}
+.block{
+
+}
+.block .block{
+	padding-left : 50px;
+}
+.block .block .block{
+	padding-left : 1cm;
+}
+.block .block .block .block{
+	padding-left : 2cm;
+}
+.block .block .comment{
+	position : relative;
+	left : -50px;
+}
+.block .block .block .comment{
+	position : relative;
+	left : -1cm;
+}	
+.block .block .block .block .comment{
+	position : relative;
+	left : -2cm;
+}	
+pre {
+ white-space: pre-wrap;       /* css-3 */
+ white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+ white-space: -pre-wrap;      /* Opera 4-6 */
+ white-space: -o-pre-wrap;    /* Opera 7 */
+ word-wrap: break-word;       /* Internet Explorer 5.5+ */
+ width: 99%;
+}
+ul{
+padding : 0;
+}
+li{ 
+list-style: none;
+}

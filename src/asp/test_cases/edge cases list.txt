@@ -1,0 +1,7 @@
+These test cases also correspond to test cases, with one small change resulting in an unsatisfiable answer set.
+
+test-basic-constraint2-fail.lp and test-basic-constraint2-success.lp
+
+test-basic-constraint3-fail.lp and test-basic-constraint3-success.lp
+
+test-basic-constraint4-fail.lp and test-basic-constraint4-success.lp

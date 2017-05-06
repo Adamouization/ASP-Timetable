@@ -1,0 +1,31 @@
+% Test case name: test-basic-constraint2-fail.lp
+% Test case goal: 
+%		Fails to generate a timetable demonstratring that the constraint: "lecturers cannot teach 2 units at the same time" cannot be violated.
+% Test case description:
+% 		This test case fails to generates a timetable after attempting to violate the constraint mentioned above.
+%		There is only 1 lecturer who teaches 2 units. Only 3 timesteps available and 4 lectures are scheduled. And 2 rooms.
+%		This shows that the lecturer cannot teach twice at the same time, since there aren't enough timesteps. 
+%		The only way for the timetable to be successfully generated would either if lecturer's could twice at the same time or if there were more timesteps 
+%			(see test-basic-constraint2-success.lp)
+% Expected output: a timetable with a single unit per timestep
+
+timesteps(1..3).
+
+takes(computerScience, adam).
+takes(computerScience, andrea).
+takes(computerScience, jay).
+takes(maths, adam).
+takes(maths, alice).
+takes(maths, chris).
+
+hoursStudentUnit(2, computerScience).
+hoursStudentUnit(2, maths).
+
+room(oneWest,5).
+room(eightWest,5).
+
+hoursUnit(2, computerScience).
+hoursUnit(2, maths).
+
+teaches(computerScience, alanTurin).
+teaches(maths, alanTurin).

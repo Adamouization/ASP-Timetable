@@ -1,7 +1,3 @@
-# Local files
-specs
-src/asplana
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -100,3 +96,7 @@ ENV/
 
 # mkdocs documentation
 /site
+
+# Local files
+specs
+critique/critique.synctex.gz

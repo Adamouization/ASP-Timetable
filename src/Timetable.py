@@ -28,7 +28,6 @@ for i in range(len(witnesses)):
 	if optimal_value > opt:
 		optimal_value[0] = opt
 		optimal_value[1] = i
-#print optimal_value
 
 # get data for optimal model
 value = witnesses[optimal_value[1]]['Value']
@@ -59,21 +58,24 @@ attendance = sorted(attendance, key=getFirst, reverse=True)
 
 
 # ---------------------------------- GUI
-		
-# create tree view
+
+# create view
 root = Tk();
 root.wm_title("Generated Timetable")
 style = ttk.Style(root)
-style.configure('Treeview', rowheight=40)	
+style.configure('Treeview', rowheight=40)
+
+# create tree
 tree = ttk.Treeview(root)
 
 # create columns
-tree["columns"]=("one","two","three","four","five")
+tree["columns"]=("one","two","three","four","five", "six")
 tree.column("one", minwidth=200, width=200, stretch=True)
 tree.column("two", minwidth=200, width=200, stretch=False)
 tree.column("three", minwidth=200, width=200, stretch=False)
 tree.column("four", minwidth=200, width=200, stretch=False)
 tree.column("five", minwidth=300, width=300, stretch=False)	
+tree.column("six", minwidth=75, width=75, stretch=False)	
 
 # create headings 
 tree.heading("one", text="Time")
@@ -81,6 +83,7 @@ tree.heading("two", text="Unit")
 tree.heading("three", text="Room")
 tree.heading("four", text="Lecturer")
 tree.heading("five", text="Students")
+tree.heading("six", text="Timestep")
 
 # take whole window width
 tree.grid(row=0, column=0, sticky='we')
@@ -157,7 +160,7 @@ for m in range(len(roomBooked)):
 		elif temp_timestep == 25:
 			time = "4pm - 6pm"
 	for n in range(len(attendance)):
-		if attendance[n][0] == roomBooked[m][0]:
+		if (attendance[n][0] == roomBooked[m][0]) and (attendance[n][3] == roomBooked[m][3]):
 			if not students:
 				students = attendance[n][2]
 			else:
@@ -165,14 +168,41 @@ for m in range(len(roomBooked)):
 	if not students:
 		students = "empty"
 	if (m%2 == 0):
-		tree.insert("", 0, text=day, values=(time,roomBooked[m][1],roomBooked[m][3],roomBooked[m][2], students), tags=('evenrow',))
+		tree.insert("", 0, text=day, values=(time,roomBooked[m][1],roomBooked[m][3],roomBooked[m][2], students, roomBooked[m][0]), tags=('evenrow',))
 	else:
-		tree.insert("", 0, text=day, values=(time,roomBooked[m][1],roomBooked[m][3],roomBooked[m][2], students), tags=('oddrow',))
-
+		tree.insert("", 0, text=day, values=(time,roomBooked[m][1],roomBooked[m][3],roomBooked[m][2], students, roomBooked[m][0]), tags=('oddrow',))
 
 print 'Timetable successfully generated.'
 
 tree.pack()
+
+# label specifying when lunchbreaks are
+label_commands = Label(root, text="Highlight a row by clicking it, and use the mouse scroll to move up and down the timetable")
+label_commands.pack()
+
+label_empty = Label(root, text="  ")
+label_empty.pack()
+
+# label specifying when lunchbreaks are
+label_lunch = Label(root, text="Lunch breaks are everyday from 12pm to 2pm")
+label_lunch.pack()
+
+# label specifying there are no lectures on wednesdays afternoon
+label_wednesdays_off = Label(root, text="There are no lectures on Wednesday afternoons from 12pm onwards")
+label_wednesdays_off.pack()
+
+label_empty2 = Label(root, text="  ")
+label_empty2.pack()
+
+# label outputting time to generate the timetable in ASP
+label_time = Label(root, text="Timetable generated in : " + str(timeR["Total"]) + "s")
+label_time.pack()
+
+# label outputting ASP files used
+label_input_file = Label(root, text="ASP input files: '" + input[0] + "' and '" + input[1] + "'")
+label_input_file.pack()
+
+
 
 root.resizable(0,0)
 root.mainloop()

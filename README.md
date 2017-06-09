@@ -8,7 +8,7 @@ Coursework: design and implement a timetabling application in a declarative mann
 1. Go to the "src" foldr.
 
 2. Run the python script, piping the clingo output in JSON format into the python script
-`clingo -n 0 asp/main.lp asp/atoms.lp --outf=2 | python Timetable.py`.
+`clingo -n 0 asp/timetable.lp asp/atoms.lp --outf=2 | python Timetable.py`.
 
 3. Wait until the timetable is generated in ASP and the GUI is launched in Python.
 

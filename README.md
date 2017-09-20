@@ -2,6 +2,7 @@
 
 Course: CM20252 (Artificial Intelligence)
 Coursework: design and implement a timetabling application in a declarative manner using Answer Set Programming.
+Final grade: 88%
 
 ### How to run the program
 
@@ -15,7 +16,7 @@ Coursework: design and implement a timetabling application in a declarative mann
 4. Close the timetable's window to exit the program.
 
 5. If you just wish to run the AnsProlog files, use this command
-`clingo -n 0 asp/main.lp asp/atoms.lp`
+`clingo -n 0 asp/timetable.lp asp/atoms.lp`
 
 6. If you just wish to run the test cases, be sure you are in the "src" folder before using this command and replace <test-file> with the test case:
 `clingo -n 0 asp/timetable.lp asp/test_cases/<test-file>.lp --outf=2 | python Timetable.py`

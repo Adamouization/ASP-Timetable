@@ -1,17 +1,38 @@
 #!/usr/bin/env python
+"""
+University Timetable UI Generator
 
-import sys
+DESCRIPTION:
+Script to parse the solved ASP Clingo output into JSON format and create a Tkinter UI.
+
+HOW TO RUN:
+Run with the following command from the command line, in the project's "src" folder:
+clingo -n 0 asp/timetable.lp asp/atoms.lp --outf=2 | python Timetable.py
+
+ADDITIONAL INFORMATION:
+Uses Clingo, third-party Answer Set Programming solver: https://potassco.org/clingo/
+Part the of the University of Bath CM20252 Artificial Intelligence coursework.
+"""
+__author__ = "Adam Jaamour"
+__copyright__ = "Copyright 2017, University of Bath"
+__version__ = "1.0.2"
+__maintainer__ = "Adam Jaamour"
+__email__ = "adam@jaamour.com"
+__status__ = "Production"
+
 import json
 import operator
-from Tkinter import *
+import sys
 import ttk
+from Tkinter import *
+
 
 print 'Generating timetable...'
 
-# load json data
+# load and parse json data
 parsed_input = json.load(sys.stdin)
 
-# first JSON objects from the clingo output
+# retrieve JSON objects from the clingo output
 solver = parsed_input['Solver']
 input = parsed_input['Input']
 call = parsed_input['Call']
@@ -201,8 +222,6 @@ label_time.pack()
 # label outputting ASP files used
 label_input_file = Label(root, text="ASP input files: '" + input[0] + "' and '" + input[1] + "'")
 label_input_file.pack()
-
-
 
 root.resizable(0,0)
 root.mainloop()

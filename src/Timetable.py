@@ -24,7 +24,7 @@ timeR = parsed_input['Time']
 optimal_value = [0,0]
 witnesses = call[0]['Witnesses']
 for i in range(len(witnesses)):
-	opt = witnesses[i]['Opt'][0]
+	opt = witnesses[i]['Costs'][0]
 	if optimal_value > opt:
 		optimal_value[0] = opt
 		optimal_value[1] = i

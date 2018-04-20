@@ -1,7 +1,7 @@
 ASP Timetable
 =======
 
-**ASP Timetable** is a timetabling application implemented in a declarative manner using Answer Set Programming for the Artificial Intelligence course. Timetabling is considered a classic A.I. problem involving many constraints, and this program tackles the different challenges and considerations that go into generating timetables.
+**ASP Timetable** is a timetabling application implemented in a declarative manner using Answer Set Programming and the [Clingo](https://potassco.org/clingo/) solver my Artificial Intelligence course. Timetabling is considered a classic A.I. problem involving many constraints, and this program tackles the different challenges and considerations that go into generating timetables.
 
 ## Features
 
@@ -76,7 +76,7 @@ If you just wish to run the test cases, be sure you are in the "src" folder befo
 clingo -n 0 asp/timetable.lp asp/test_cases/<test-file>.lp --outf=2 | python Timetable.py
 ```
 
-You can view the **LANA** documentation on your web browser (generated using SeaLion Exlipse extension). To do so, go to the [`documentation`](https://github.com/Adamouization/ASP-Timetable/tree/master/documentation) folder and open the `index.html` file in your web browser.
+You can view the **LANA** documentation on your web browser (generated using SeaLion Eclipse extension). To do so, go to the [`documentation`](https://github.com/Adamouization/ASP-Timetable/tree/master/documentation) folder and open the `index.html` file in your web browser.
 
 ## License 
 * see [LICENSE](https://github.com/Adamouization/ASP-Timetable/blob/master/LICENSE) file

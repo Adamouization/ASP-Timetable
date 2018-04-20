@@ -1,9 +1,36 @@
 ASP Timetable
 =======
 
-**ASP Timetable** is a software for things. Short description here.
+**ASP Timetable** is a timetabling application implemented in a declarative manner using Answer Set Programming for the Artificial Intelligence course. Timetabling is considered a classic A.I. problem involving many constraints, and this program tackles the different challenges and considerations that go into generating timetables.
 
-#### Screenshots
+## Features
+
+* **General**
+    * Clingo output parsed and interpreted by a Python script to create a Tkinter GUI
+    * Generated sets written entirely in AnsProlog
+    * Program documented using LANA
+* **Constraints**
+	* students cannot attend two lectures at the same time
+	* lecturers cannot teach two units at the same time
+	* rooms can only be used for one lecture at a time
+	* lecturers cannot teach when they have other commitments
+	* students and lecturers have all their units schedule
+* **Weak Constraints** *(add penalty points to the sets that do not accommodate this rule)*
+	* lecturers can have preferred teaching times
+	* timetables offer a lunch break where possible
+	* no scheduled lectures on Wednesday afternoons
+* **Atoms** *(user-specified in `atoms.lp`)*
+	* students
+	* rooms
+	* units
+	* lecturers
+	* capacity of the rooms
+	* units taken by a student
+	* units taught by a lecturer
+	* times that a lecturer has other commitments
+
+
+## Screenshots
 
 ###### Tkinter GUI screenshot
 
@@ -12,10 +39,6 @@ ASP Timetable
 ###### Command Line Clingo output screenshot
 
 ![CLI screenshot](https://github.com/Adamouization/ASP-Timetable/blob/master/screenshots/screenshot_cli.png)
-
-## Features
-
-todo add features
 
 ## Usage
 
@@ -35,7 +58,7 @@ cd ASP-Timetable/src/
     * `atoms.lp` contains all the atoms such as courses, lecturers, rooms, ...
     * `--outf=2` outputs the generated answer set in JSON format
     * `|` pipes the JSON output into the python script
-    * `python Timetable.py` runs the Python script to parse the JSON output and create the TKinter GUI with the data from the optimal answer. 
+    * `python Timetable.py` runs the Python script to parse the JSON output and create the Tkinter GUI with the data from the optimal answer. 
 
 3. Wait until the timetable is generated in ASP and the GUI is launched in Python.
 
